@@ -27,10 +27,14 @@ hadl-plankton-case-study/
 To reproduce the visual analysis and audit the dataset metadata:
 
 # Generates the 5 required visual assets in /assets folder
+```bash
 python generate_all_assets.py
+```
 
 ## To run the custom counting metrics (MAE, Signed Error):
+```bash
 python evaluation/metrics.py --preds predictions.json --gt _annotations.coco.json
+```
 
 ## Approach Summary
 1. Data-Centric Audit
