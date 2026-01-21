@@ -17,14 +17,15 @@ While standard CV approaches focus on optimizing IoU, my "magic" lies in applyin
 ```text
 hadl-plankton-case-study/
 ├── assets/                  # Generated visual evidence (Distributions, Failures, Variance)
-├── data_audit/              # Geometric analysis & Class distribution scripts
-│   └── README.md            # Deep dive into Imbalance & Variance
+├── data_audit/              # Geometric analysis & class distribution scripts
+│   └── README.md            # Deep dive into Imbalance & variance
+|   └── analyze_coco.py      # Run the geometric analysis & class distribution scripts
 ├── evaluation/              # Custom metrics & Failure analysis
-│   └── README.md            # Analysis of Density Bias & Counting Errors
+│   └── README.md            # Analysis of density bias & counting errors
 |   └── density_metrics.py   # Run the custom counting metrics (MAE, Signed Error) against the ground truth
 └── improvement/             # Prototyping solutions
-    ├── README.md            # Improvement Proposals & Prioritization Matrix
-    └── coco_copy_paste.py   # PROTOTYPE: Rare Class Injection strategy
+    ├── README.md            # Improvement proposals & prioritization Matrix
+    └── coco_copy_paste.py   # PROTOTYPE: Rare class injection strategy
 ```
 
 ## Quick Start
