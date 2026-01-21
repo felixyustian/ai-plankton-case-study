@@ -17,6 +17,7 @@ While standard CV approaches focus on optimizing IoU, my "magic" lies in applyin
 ```text
 hadl-plankton-case-study/
 ├── assets/                  # Generated visual evidence (Distributions, Failures, Variance)
+|── dataset/                 # Dataset sample link for download
 ├── data_audit/              # Geometric analysis & class distribution scripts
 │   └── README.md            # Deep dive into Imbalance & variance
 |   └── analyze_coco.py      # Run the geometric analysis & class distribution scripts
