@@ -57,7 +57,7 @@ Dense (>50 objects): Accuracy degrades significantly due to overlapping bounding
 #### 3.1 Proposals & Trade-offs
 We evaluated solutions based on their impact on the specific "Clumping" and "Imbalance" problems.
 
-```markdown | Proposal | Target Problem | Target Problem | Target Problem | :--- | :---: | ---: | | Copy-Paste Aug | Class Imbalance | Class Imbalance | Artifact Risk: Pasting plankton on "noisy" backgrounds (bubbles) may create unrealistic training samples that confuse the model | | Density Map Regression | Density Map Regression | Density Map Regression | Complexity: Requires changing model architecture (YOLO -> U-Net) and potentially re-labeling data as points (dots) instead of boxes | | Soft-NMS | Occlusion | Moderate improvement in dense clusters | Inference Latency: Increases post-processing time linearly with the number of detections | ```
+```markdown | Proposal | Target Problem | Target Problem | Target Problem | | :--- | :--- | :--- | :--- | | Copy-Paste Aug | Class Imbalance | Class Imbalance | Artifact Risk: Pasting plankton on "noisy" backgrounds (bubbles) may create unrealistic training samples that confuse the model | | Density Map Regression | Density Map Regression | Density Map Regression | Complexity: Requires changing model architecture (YOLO -> U-Net) and potentially re-labeling data as points (dots) instead of boxes | | Soft-NMS | Occlusion | Moderate improvement in dense clusters | Inference Latency: Increases post-processing time linearly with the number of detections | ```
 
 #### 3.2 Prioritization (2-Week Sprint)
 Priority 1: Copy-Paste Augmentation (Implemented)
