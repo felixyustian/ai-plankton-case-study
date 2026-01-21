@@ -1,49 +1,31 @@
-# 1.1 Class Distribution Analysis
+# Task 1: Data Audit & Analysis
 
-**Verdict:** The dataset follows a generic Long-Tail distribution.
-* **Dominant Class:** `Copepods` (60% of data)
-* [cite_start]**Critically Underrepresented:** `Dinoflagellates` (0.5% of data) [cite: 35]
+## 1.1 Class Distribution Analysis
+We analyzed the dataset and identified a severe long-tail imbalance.
+* **Dominant Class:** *Chlorella sp*
+* **Imbalance Ratio:** >1:2000 (standard Cross-Entropy loss will likely fail).
+* **Strategy:** Recommended Mosaic Augmentation and Copy-Paste for rare classes.
 
-| Metric | Value | Implications |
-| :--- | :--- | :--- |
-| Imbalance Ratio | 1:120 | Standard Cross-Entropy loss will ignore `Dinoflagellates`. |
-| Handling Strategy | **Mosaic + Copy-Paste Augmentation** | We must artificially oversample the tail classes. |
-
-# 1.2 Intra-class Variance Assessment
-**Selected Class:** `Rotifers`
-* **Variance Source:** Digestion status. Full `Rotifers` look opaque; empty ones look translucent.
-* **Implication:** Model learns texture rather than shape.
-* [cite_start]**Visual Evidence:** (See generated plot `rotifer_variance_tsne.png`) [cite: 39]
-
-# 1.3 Inter-class Similarity
-* **Conflict Pair:** `Algae_A` vs `Debris`
-* **Issue:** Non-organic debris often has similar circular morphology to Algae.
-* **Human Differentiation:** Requires temporal context (movement) which is absent in static images.
-* **Architecture Implication:** We may need an additional input channel (optical flow) if video is available, or focus on edge-detection filters.
-
-# 1.4 Annotation Quality
-**Issue Detected:** "The Halo Effect"
-* **Description:** Annotators are drawing boxes around the *cilia* (hairs) of plankton in some images, but only the *body* in others.
-* **QC Strategy:** Use **Confident Learning**. Train a model on 5-fold cross-validation. Flag images where `Prediction != Label` with high confidence. [cite_start]These are usually label errors. [cite: 51]
-
-## 1.1 Class Distribution
-We analyzed the COCO annotations and found a severe long-tail distribution.
-* **Dominant Class:** *Chlorella sp* (2,531 instances)
-* **Rare Class:** *Vorticella sp* (1 instance)
-* **Imbalance Ratio:** 1:2531
-
+**Visual Evidence:**
 ![Class Distribution](../assets/class_distribution.png)
 
 ## 1.2 Intra-Class Variance
-We analyzed the bounding box geometry of *Oscillatoria sp*.
-* **Observation:** Significant morphological variance. Some instances are elongated (filamentous) while others are fragmented.
-![Geometric Variance](../assets/geometric_intra_class_variance.png)
+We examined the geometric variance within classes.
+* **Observation:** *Oscillatoria sp* exhibits significant morphological variation (filamentous vs. fragmented), suggesting the model needs deformable convolutions or high rotation augmentation.
+
+**Visual Evidence:**
+![Intra-Class Variance](../assets/intra_class_variance.png)
 
 ## 1.3 Inter-Class Similarity
-We compared the spatial dimensions of *Chlorella sp* and *Pyramimonas sp*.
-* **Observation:** The geometric distributions overlap by >80%. Without high-resolution texture details, these classes are indistinguishable to the detector.
-![Confusion Scatter](../assets/geometric_inter_class_confusion.png)
+We analyzed confusion risks between geometrically similar classes.
+* **Observation:** *Chlorella* and *Pyramimonas* have nearly identical bounding box aspect ratios (1:1), making them indistinguishable without high-resolution texture features.
+
+**Visual Evidence:**
+![Inter-Class Confusion](../assets/inter_class_confusion.png)
 
 ## 1.4 Annotation Quality
-We found inconsistent labeling, specifically the "Halo Effect" where cilia are sometimes included in the box.
+We audited the ground truth and identified **138 potential errors**, primarily "Smearing" (Motion Blur) labeled as distinct objects.
+* **Recommendation:** Apply 'Confident Learning' to automatically flag and clean these labels.
+
+**Visual Evidence:**
 ![Bad Annotations](../assets/bad_annotations.png)
