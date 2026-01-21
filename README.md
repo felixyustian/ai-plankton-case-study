@@ -37,25 +37,25 @@ python evaluation/metrics.py --preds predictions.json --gt _annotations.coco.jso
 ```
 
 ## Approach Summary
-## 1. Data-Centric Audit
+### 1. Data-Centric Audit
 We moved beyond simple class counting to analyze Bounding Box Geometry.
 
 Findings: The dataset is dominated by Chlorella sp, while classes like Vorticella have single-digit instances.
 
 Quality Control: We detected 138 suspect annotations (extreme aspect ratios) representing motion blur artifacts rather than valid organisms.
 
-## 2. Density-Aware Evaluation
+### 2. Density-Aware Evaluation
 Standard mAP is insufficient for this business case. We introduced Density Binning:
 
 Sparse (<10 objects): High accuracy.
 
 Dense (>50 objects): Accuracy degrades significantly due to overlapping bounding boxes.
 
-## 3. Proposed Solution
+### 3. Proposed Solution
 Immediate Term: Copy-Paste Augmentation (Implemented in improvement/) to fix the long-tail distribution.
 
 ## Long Term Solution: 
 Switch detection head to Density Map Regression to bypass NMS limitations in crowded tanks.
 
-============================================================================================
+==========================================================================
 ## *Submitted by Felix Yustian for Hadl.ai Senior Computer Vision Scientist Role*
