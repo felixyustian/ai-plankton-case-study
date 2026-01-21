@@ -83,4 +83,6 @@ What it does: Extracts rare classes from source images and seamlessly clones the
 
 Honest Assessment: The prototype works well on clear backgrounds, but struggles when pasting onto complex textures (e.g., debris), occasionally creating "halo" artifacts. A production version would require a segmentation-based mask check.
 
+---
+
 ## Submitted by Felix Yustian for Hadl.ai Senior Computer Vision Scientist Role.
