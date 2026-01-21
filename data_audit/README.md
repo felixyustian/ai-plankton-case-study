@@ -25,3 +25,15 @@
 **Issue Detected:** "The Halo Effect"
 * **Description:** Annotators are drawing boxes around the *cilia* (hairs) of plankton in some images, but only the *body* in others.
 * **QC Strategy:** Use **Confident Learning**. Train a model on 5-fold cross-validation. Flag images where `Prediction != Label` with high confidence. [cite_start]These are usually label errors. [cite: 51]
+
+## 1.1 Class Distribution
+We identified a severe long-tail imbalance (1:100 ratio).
+![Class Distribution Plot](../assets/class_distribution.png)
+
+## 1.2 Intra-Class Variance
+The class 'Rotifer' exhibits high variance due to digestion states (translucent vs opaque).
+![Variance Example](../assets/intra_class_variance.png)
+
+## 1.4 Annotation Quality
+We found inconsistent labeling, specifically the "Halo Effect" where cilia are sometimes included in the box.
+![Bad Annotations](../assets/bad_annotations.png)
