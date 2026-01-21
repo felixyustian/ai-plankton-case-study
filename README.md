@@ -21,6 +21,7 @@ hadl-plankton-case-study/
 │   └── README.md            # Deep dive into Imbalance & Variance
 ├── evaluation/              # Custom metrics & Failure analysis
 │   └── README.md            # Analysis of Density Bias & Counting Errors
+|   └── density_metrics.py   # Run the custom counting metrics (MAE, Signed Error) against the ground truth
 └── improvement/             # Prototyping solutions
     ├── README.md            # Improvement Proposals & Prioritization Matrix
     └── coco_copy_paste.py   # PROTOTYPE: Rare Class Injection strategy
