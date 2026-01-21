@@ -21,3 +21,11 @@ The primary failure is **NMS Suppression in High Density**. Plankton naturally c
 **Biases:**
 * Bias toward **Under-counting** in Dense scenes.
 * Bias toward **Over-counting** in noisy water (bubbles detected as plankton).
+
+## 2.2 Failure Mode Analysis
+The primary failure mode is **Merged Detection** in dense clusters.
+
+| Category | Frequency | Visual Example |
+| :--- | :--- | :--- |
+| Merged Detection | 45% | ![Merged Failure](../assets/failure_modes.png) |
+| Class Confusion | 20% | (See Inter-class confusion image) |
