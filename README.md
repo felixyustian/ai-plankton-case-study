@@ -59,9 +59,9 @@ We evaluated solutions based on their impact on the specific "Clumping" and "Imb
 
 | Proposal | Target Problem | Expected Impact | Expected Impact |
 | :--- | :--- | :--- | :--- |
-| Expected Impact | Row 1 Col 2 | Row 1 Col 3 | Row 1 Col 4 |
-| Density Map Regression | Row 2 Col 2 | Row 2 Col 3 | Row 2 Col 4 |
-| Soft-NMS | Row 3 Col 2 | Row 3 Col 3 | Row 3 Col 4 |
+| Expected Impact | Class Imbalance | High recall for rare species | Artifact Risk: Pasting plankton on "noisy" backgrounds (bubbles) may create unrealistic training samples that confuse the model |
+| Density Map Regression | Occlusion/Clumping | Solves NMS failure completely | Complexity: Requires changing model architecture (YOLO -> U-Net) and potentially re-labeling data as points (dots) instead of boxes |
+| Soft-NMS | Occlusion | Moderate improvement in dense clusters | Inference Latency: Increases post-processing time linearly with the number of detections |
 
 #### 3.2 Prioritization (2-Week Sprint)
 Priority 1: Copy-Paste Augmentation (Implemented)
