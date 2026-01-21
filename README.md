@@ -64,15 +64,15 @@ We evaluated solutions based on their impact on the specific "Clumping" and "Imb
 | Soft-NMS | Occlusion | Moderate improvement in dense clusters | Inference Latency: Increases post-processing time linearly with the number of detections |
 
 #### 3.2 Prioritization (2-Week Sprint)
-Priority 1: Copy-Paste Augmentation (Implemented)
+##### Priority 1: Copy-Paste Augmentation (Implemented)
 
 Why: It is a low-code, high-impact intervention that directly solves the 1:2500 imbalance without requiring architectural changes. It leverages existing data to "create" new data.
 
-Priority 2: Soft-NMS Integration
+##### Priority 2: Soft-NMS Integration
 
 Why: A quick algorithmic tweak to reduce under-counting in clusters.
 
-DEFERRED: Density Map Regression
+##### DEFERRED: Density Map Regression
 
 Rationale: While theoretically superior for counting, the engineering cost is too high for a 2-week sprint. It requires a fundamental shift in the pipeline (Point Supervision) and retraining from scratch. I would only pursue this if Soft-NMS fails to meet accuracy KPIs.
 
