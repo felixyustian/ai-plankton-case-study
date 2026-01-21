@@ -21,17 +21,18 @@ hadl-plankton-case-study/
 └── improvement/             # Prototyping solutions
     ├── README.md            # Improvement Proposals & Prioritization Matrix
     └── coco_copy_paste.py   # PROTOTYPE: Rare Class Injection strategy
+```
 
 ## Quick Start
 To reproduce the visual analysis and audit the dataset metadata:
 
 # Generates the 5 required visual assets in /assets folder
 python generate_all_assets.py
-To run the custom counting metrics (MAE, Signed Error):
 
-Bash
+## To run the custom counting metrics (MAE, Signed Error):
 python evaluation/metrics.py --preds predictions.json --gt _annotations.coco.json
-Approach Summary
+
+## Approach Summary
 1. Data-Centric Audit
 We moved beyond simple class counting to analyze Bounding Box Geometry.
 
@@ -49,7 +50,7 @@ Dense (>50 objects): Accuracy degrades significantly due to overlapping bounding
 3. Proposed Solution
 Immediate Term: Copy-Paste Augmentation (Implemented in improvement/) to fix the long-tail distribution.
 
-Long Term: Switch detection head to Density Map Regression to bypass NMS limitations in crowded tanks.
+## Long Term: Switch detection head to Density Map Regression to bypass NMS limitations in crowded tanks.
 
 ------------------------------------------------------------------------------------------------------------------
 
