@@ -58,4 +58,4 @@ Immediate Term: Copy-Paste Augmentation (Implemented in improvement/) to fix the
 
 ------------------------------------------------------------------------------------------------------------------
 
-Submitted by Felix Yustian for Hadl.ai Senior Computer Vision Scientist Role.
+*Submitted by Felix Yustian for Hadl.ai Senior Computer Vision Scientist Role*
