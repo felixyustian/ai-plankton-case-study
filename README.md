@@ -1,5 +1,6 @@
-Plankton Detection & Counting: Technical Case Study
-Overview
+# Plankton Detection & Counting: Technical Case Study
+
+## Overview
 This repository contains the analysis, evaluation logic, and improvement prototypes for the Hadl.ai plankton counting challenge.
 
 Core Philosophy: In aquaculture monitoring, count accuracy often outweighs pure bounding box precision. A model that hallucinates plankton in clear water is worse than one that slightly misaligns a box on an existing one. This solution prioritizes Density-Awareness and Data-Centric corrections over simple hyperparameter tuning.
