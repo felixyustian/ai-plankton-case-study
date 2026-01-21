@@ -56,6 +56,5 @@ Immediate Term: Copy-Paste Augmentation (Implemented in improvement/) to fix the
 
 ## Long Term Solution: 
 Switch detection head to Density Map Regression to bypass NMS limitations in crowded tanks.
-
 ============================================================================================
 ## *Submitted by Felix Yustian for Hadl.ai Senior Computer Vision Scientist Role*
