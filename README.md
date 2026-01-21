@@ -54,6 +54,7 @@ Dense (>50 objects): Accuracy degrades significantly due to overlapping bounding
 ## 3. Proposed Solution
 Immediate Term: Copy-Paste Augmentation (Implemented in improvement/) to fix the long-tail distribution.
 
-## Long Term: Switch detection head to Density Map Regression to bypass NMS limitations in crowded tanks.
+## Long Term Solution: 
+Switch detection head to Density Map Regression to bypass NMS limitations in crowded tanks.
 
-## *Submitted by Felix Yustian for Hadl.ai Senior Computer Vision Scientist Role*
+# *Submitted by Felix Yustian for Hadl.ai Senior Computer Vision Scientist Role*
