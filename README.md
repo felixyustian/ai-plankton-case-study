@@ -35,7 +35,7 @@ python generate_all_assets.py
 
 To run the custom counting metrics (MAE, Signed Error) against the ground truth:
 ```bash
-python evaluation/metrics.py --preds predictions.json --gt _annotations.coco.json
+python evaluation/density_metrics.py --preds predictions.json --gt _annotations.coco.json
 ```
 
 ## Approach Summary
