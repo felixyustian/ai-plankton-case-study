@@ -1,5 +1,7 @@
 # Plankton Detection & Counting: Technical Case Study
 
+==============================================================================================================================================
+
 ## Overview
 This repository contains the analysis, evaluation logic, and improvement prototypes for the Hadl.ai plankton counting challenge.
 
@@ -57,6 +59,6 @@ Immediate Term: Copy-Paste Augmentation (Implemented in improvement/) to fix the
 ## Long Term Solution: 
 Switch detection head to Density Map Regression to bypass NMS limitations in crowded tanks.
 
-
+==============================================================================================================================================
 
 ## *Submitted by Felix Yustian for Hadl.ai Senior Computer Vision Scientist Role*
