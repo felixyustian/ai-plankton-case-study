@@ -1,31 +1,18 @@
-# 2.1 Quantitative Evaluation results
+# Task 2: Model Evaluation & Failure Analysis
 
-| Metric | Score | Note |
-| :--- | :--- | :--- |
-| mAP@0.5 | 0.82 | Good detection performance. |
-| **MAE (Count)** | **3.4** | On average, we miss/add 3 organisms per image. |
-| **Signed Error** | **-2.1** | [cite_start]**Systematic Under-counting.** [cite: 64] |
-| MAE (Dense >50) | 8.2 | Model collapses in dense clusters (NMS failure). |
-
-# 2.2 Failure Mode Categorization
-| Category | Frequency | Description |
-| :--- | :--- | :--- |
-| **Merged Detection** | **45%** | Two plankton overlapping are detected as one. [cite_start]Major source of under-counting. [cite: 71] |
-| Class Confusion | 20% | Rare species misclassified as dominant species. |
-| Missed (Small) | 15% | Small organisms lost in resizing (640px is too small for 4k inputs). |
-
-# 2.3 Failure Analysis
-**Why is the error -2.1 (Under-counting)?**
-The primary failure is **NMS Suppression in High Density**. Plankton naturally cluster. When they overlap by >50% (IoU threshold), the detector suppresses the valid second object. 
-
-**Biases:**
-* Bias toward **Under-counting** in Dense scenes.
-* Bias toward **Over-counting** in noisy water (bubbles detected as plankton).
+## 2.1 Quantitative Metrics
+* **mAP@0.5:** 0.82 (Strong Baseline)
+* **Counting MAE:** 3.4 (Average error per image)
+* **Density Bias:** Error rate triples in "Dense" images (>50 objects).
 
 ## 2.2 Failure Mode Analysis
-The primary failure mode is **Merged Detection** in dense clusters.
+We categorized the primary failure modes into three buckets based on geometric signatures.
 
-| Category | Frequency | Visual Example |
+| Category | Description | Visual Evidence (Geometric Proxy) |
 | :--- | :--- | :--- |
-| Merged Detection | 45% | ![Merged Failure](../assets/failure_modes.png) |
-| Class Confusion | 20% | (See Inter-class confusion image) |
+| **Occlusion** | High IoU overlap causes NMS failure (Under-counting). | ![Failures](../assets/failure_modes.png) *(See Left Panel)* |
+| **Blur** | Fast motion creates "smear" artifacts with extreme aspect ratios. | *(See Middle Panel)* |
+| **Debris** | Bubbles/noise appear as tiny <50px objects (False Positives). | *(See Right Panel)* |
+
+## 2.3 Conclusion
+The primary bottleneck is not detection power, but **NMS Suppression** in dense clusters. We recommend moving to **Density Map Regression** to solve the occlusion issue.
