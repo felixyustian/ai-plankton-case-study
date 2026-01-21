@@ -35,8 +35,14 @@ We analyzed the COCO annotations and found a severe long-tail distribution.
 ![Class Distribution](../assets/class_distribution.png)
 
 ## 1.2 Intra-Class Variance
-The class 'Rotifer' exhibits high variance due to digestion states (translucent vs opaque).
-![Variance Example](../assets/intra_class_variance.png)
+We analyzed the bounding box geometry of *Oscillatoria sp*.
+* **Observation:** Significant morphological variance. Some instances are elongated (filamentous) while others are fragmented.
+![Geometric Variance](../assets/geometric_intra_class_variance.png)
+
+## 1.3 Inter-Class Similarity
+We compared the spatial dimensions of *Chlorella sp* and *Pyramimonas sp*.
+* **Observation:** The geometric distributions overlap by >80%. Without high-resolution texture details, these classes are indistinguishable to the detector.
+![Confusion Scatter](../assets/geometric_inter_class_confusion.png)
 
 ## 1.4 Annotation Quality
 We found inconsistent labeling, specifically the "Halo Effect" where cilia are sometimes included in the box.
