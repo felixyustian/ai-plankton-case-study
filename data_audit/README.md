@@ -27,8 +27,12 @@
 * **QC Strategy:** Use **Confident Learning**. Train a model on 5-fold cross-validation. Flag images where `Prediction != Label` with high confidence. [cite_start]These are usually label errors. [cite: 51]
 
 ## 1.1 Class Distribution
-We identified a severe long-tail imbalance (1:100 ratio).
-![Class Distribution Plot](../assets/class_distribution.png)
+We analyzed the COCO annotations and found a severe long-tail distribution.
+* **Dominant Class:** *Chlorella sp* (2,531 instances)
+* **Rare Class:** *Vorticella sp* (1 instance)
+* **Imbalance Ratio:** 1:2531
+
+![Class Distribution](../assets/class_distribution.png)
 
 ## 1.2 Intra-Class Variance
 The class 'Rotifer' exhibits high variance due to digestion states (translucent vs opaque).
