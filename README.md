@@ -16,6 +16,9 @@ While standard CV approaches focus on optimizing IoU, my "magic" lies in applyin
 ## Repository Map
 ```text
 hadl-plankton-case-study/
+├── README.md                # README file for the general information of the model
+├── generate_all_assets.py   # Reproducing the visual analysis and auditing the dataset metadata (generates images in /assets):
+├── requirements.txt         # List of all libraries needed to run the model
 ├── assets/                  # Generated visual evidence (Distributions, Failures, Variance)
 |── dataset/                 # Dataset sample link for download
 ├── data_audit/              # Geometric analysis & class distribution scripts
