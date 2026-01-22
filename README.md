@@ -19,7 +19,7 @@ hadl-plankton-case-study/
 ├── assets/                  # Generated visual evidence (Distributions, Failures, Variance)
 |── dataset/                 # Dataset sample link for download
 ├── data_audit/              # Geometric analysis & class distribution scripts
-│   └── README.md            # Deep dive into Imbalance & variance
+│   └── README.md            # Deep dive into imbalance & variance
 |   └── analyze_coco.py      # Run the geometric analysis & class distribution scripts
 ├── evaluation/              # Custom metrics & Failure analysis
 │   └── README.md            # Analysis of density bias & counting errors
