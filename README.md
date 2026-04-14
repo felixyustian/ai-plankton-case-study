@@ -1,7 +1,32 @@
-# Plankton Detection & Counting: Technical Case Study
+# 🔬 Fine-Grained Plankton Detection & Counting: Technical Case Study
 
-## Overview
-This repository contains the analysis, evaluation logic, and improvement prototypes for the Hadl.ai plankton counting challenge.
+---
+
+## 📌 Executive Summary
+
+This repository presents an advanced Computer Vision solution for the detection and taxonomic classification of plankton within microscopic imagery. The primary challenges addressed in this case study are **Fine-Grained Classification** (distinguishing visually similar species) and **Dense Object Counting** (accurately counting large quantities of small, overlapping objects).
+
+This solution is engineered with a strict focus on scientific metric accuracy and data pipeline efficiency to process complex biological image datasets.
+
+---
+
+## 🧪 Engineering Highlights
+
+### 1. Small Object Detection Strategy
+Handling microscopic plankton requires a fundamentally different approach compared to macro-object detection. The strategies implemented include:
+* **Tiling & Slicing Inference:** Implementing image slicing techniques on high-resolution inputs to ensure minute morphological features of the plankton are not lost during resizing to the model's input resolution.
+* **Aspect Ratio Optimization:** Fine-tuning anchor boxes and scaling parameters to be highly sensitive to the elongated or asymmetrical shapes of specific plankton.
+
+### 2. Taxonomic Distribution Analysis (Class Imbalance Mitigation)
+Biological datasets often suffer from extreme dominance by certain species. Solutions in this repository include:
+* **Strategic Augmentation:** Utilizing augmentation techniques that preserve biological feature integrity (e.g., slight degree rotations and contrast adjustments) to enrich the representation of minority classes.
+* **Evaluation Beyond mAP:** Utilizing in-depth Confusion Matrices to identify inter-class ambiguity between taxonomically adjacent species.
+
+### 3. Counting Precision Evaluation
+Beyond standard detection, this system is rigorously evaluated on its ability to calculate population density:
+* Benchmarking *Predicted Count* versus *Ground Truth Count* using the **MAE (Mean Absolute Error)** metric to guarantee data reliability for marine research purposes.
+
+---
 
 ### ✨ The "Magic": A Biological & Data-Centric Manifesto
 While standard CV approaches focus on optimizing IoU, my "magic" lies in applying **biological constraints** to computer vision. Plankton are not random rigid objects; they are fluid-dynamic entities that cluster.
