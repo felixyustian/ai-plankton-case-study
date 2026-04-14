@@ -91,4 +91,4 @@ Honest Assessment: The prototype works well on clear backgrounds, but struggles 
 
 ---
 
-## *Submitted by Felix Yustian for Hadl.ai Senior Computer Vision Scientist Role*
+## *Copyright by Felix Yustian Setiono*
